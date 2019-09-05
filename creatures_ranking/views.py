@@ -7,6 +7,11 @@ from .models import Creature, Castle
 from django.views import View
 
 
+class BaseView(View):
+    def get(self, request):
+        return render(request, '__base__.html')
+
+
 class CreatureDetails(View):
     def get(self, request, id):
         creature = Creature.objects.get(id=id)
@@ -22,9 +27,8 @@ class CastleCreatureList(View):
 
 class EditCreatureForm(View):
     def get(self, request, id):
-        # creature = Creature.objects.get(id=id)
-        # creature_data =
-        form = CreatureForm()
+        creature = Creature.objects.get(id=id)
+        form = CreatureForm(instance=creature)
         return render(request, 'creature_form.html', {'form': form})
 
     def post(self, request):
