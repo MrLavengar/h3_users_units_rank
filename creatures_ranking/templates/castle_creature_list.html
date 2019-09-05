@@ -1,0 +1,8 @@
+{% extends '__base__.html' %}
+{% load static %}
+{% block content %}
+    Castle: {{ castle.castle_name }} <img src="{% static castle.small_castle_picture_path %}"> <br>
+    {% for creature in creatures_list %}
+        <img src="{% static creature.small_creature_picture_path %}"> <a href="/creature_details/{{ creature.id }}">{{ creature.name }}</a>, level: {{ creature.lvl }}<br>
+    {% endfor %}
+{% endblock %}

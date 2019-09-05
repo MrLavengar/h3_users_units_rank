@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="sidenav">
+    <span >Creatures rank by fight value</span>
+    {% for creature in creature_list %}
+        <a href="/creature_details/{{ creature.id }}">
+            {{ forloop.counter }})
+            <img src="{% static creature.small_creature_picture_path %}" width="30px" height="30px">
+            {{ creature.name }}
+        </a>
+    {% endfor %}
+</div>
+<!-- //--------------------------- page content -------------------------// -->
+<div class="main">{% block content %}{% endblock content %}</div>
+<!-- //--------------------------- page content end ---------------------// -->
+
+
+</body>
+</html> 

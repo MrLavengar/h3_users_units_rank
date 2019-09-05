@@ -1,0 +1,38 @@
+{% extends '__base__.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    Creature:
+    {{ creature.name }} <img src="{% static creature.small_creature_picture_path %}"><br>
+    Castle:
+    <a class='castle'
+       href="/castle_creature_list/{{ creature.castle_name.castle_name }}">{{ creature.castle_name.castle_name }}</a>
+    <img src="{% static creature.castle_name.small_castle_picture_path %}" alt=""><br>
+    Level:
+    {{ creature.lvl }}<br>
+    Attack:
+    {{ creature.attack }}<br>
+    Defence:
+    {{ creature.defence }}<br>
+    Min dmg:
+    {{ creature.min_dmg }}<br>
+    Max dmg:
+    {{ creature.max_dmg }}<br>
+    Health:
+    {{ creature.health }}<br>
+    Speed:
+    {{ creature.speed }}<br>
+    Growth:
+    {{ creature.growth }}<br>
+    Fight value:
+    {{ creature.fight_value }}<br>
+    AI value:
+    {{ creature.AI_value }}<br>
+    Special abilities:
+    {{ creature.special_abilities }}<br>
+    <a href ='/edit_creature/{{ creature.id }}' ><button>Edit creature details</button></a>
+
+
+{% endblock %}
