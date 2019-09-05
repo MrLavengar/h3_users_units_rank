@@ -9,6 +9,9 @@ class Castle(models.Model):
     hero_attack_bonus = models.IntegerField()
     hero_defence_bonus = models.IntegerField()
 
+    def __str__(self):
+        return self.castle_name
+
     @property
     def small_castle_picture_path(self):
         return "small_images/Town_portrait_{name}_small.gif".format(name=self.castle_name)
