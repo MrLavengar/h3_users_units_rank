@@ -18,9 +18,92 @@
     {% endfor %}
 </div>
 <!-- //--------------------------- page content -------------------------// -->
-<div class="main">{% block content %}{% endblock content %}</div>
+<div class="main">
+    <a href="#"><button>Login</button></a>
+    <a href="#"><button>Logout</button></a>
+    <a href="#"><button>Vote!</button></a><br>
+    <hr>
+
+    {% block content %}
+         <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 9</div>
+    <a href="/castle_creature_list/Castle"><img src="{% static 'castle_images/Adventure_Map_Castle_fort.gif' %}" style="width:30%"></a>
+    <div class="text"><h3 class="shadow">Castle</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 9</div>
+    <a href="/castle_creature_list/Rampart"><img src="{% static 'castle_images/Adventure_Map_Rampart_fort.gif' %}" style="width:30%"></a>
+    <div class="text"><h3 class="shadow">Rampart</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 9</div>
+    <a href="/castle_creature_list/Tower"><img src="{% static 'castle_images/Adventure_Map_Tower_fort.gif' %}" style="width:30%"></a>
+      <div class="text"><h3 class="shadow">Tower</h3></div>
+  </div>
+    <div class="mySlides fade">
+    <div class="numbertext">4 / 3</div>
+    <a href="/castle_creature_list/Inferno"><img src="{% static 'castle_images/Adventure_Map_Inferno_fort.gif' %}" style="width:30%"></a>
+    <div class="text"><h3 class="shadow">Inferno</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 9</div>
+    <a href="/castle_creature_list/Necropolis"><img src="{% static 'castle_images/Adventure_Map_Necropolis_fort.gif' %}" style="width:30%"></a>
+    <div class="text"><h3 class="shadow">Necropolis</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">6 / 9</div>
+    <a href="/castle_creature_list/Dungeon"><img src="{% static 'castle_images/Adventure_Map_Dungeon_fort.gif' %}" style="width:30%"></a>
+      <div class="text"><h3 class="shadow">Dungeon</h3></div>
+  </div>
+    <div class="mySlides fade">
+    <div class="numbertext">7 / 9</div>
+    <a href="/castle_creature_list/Stronghold"><img src="{% static 'castle_images/Adventure_Map_Stronghold_fort.gif' %}" style="width:30%"></a>
+    <div class="text"><h3 class="shadow">Stronghold</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">8 / 9</div>
+    <a href="/castle_creature_list/Fortress"><img src="{% static 'castle_images/Adventure_Map_Fortress_fort.gif' %}" style="width:30%"></a>
+    <div class="text"><h3 class="shadow">Fortress</h3></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">9 / 9</div>
+    <a href="/castle_creature_list/Conflux"><img src="{% static 'castle_images/Adventure_Map_Conflux_fort.gif' %}" style="width:30%"></a>
+      <div class="text"><h3 class="shadow">Conflux</h3></div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">Previous</a>
+  <a class="next" onclick="plusSlides(1)">Next</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+</div>
+
+    {% endblock content %}
+</div>
 <!-- //--------------------------- page content end ---------------------// -->
 
-
+<script src="{% static 'base.js' %}"></script>
 </body>
 </html> 
