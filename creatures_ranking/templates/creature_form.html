@@ -1,0 +1,9 @@
+{% extends '__base__.html' %}
+{% block content %}
+<h1>Edit creature: </h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Send">
+</form>
+{% endblock %}
