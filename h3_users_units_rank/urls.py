@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from creatures_ranking.views import BaseView, CreatureDetails, CastleCreatureList,EditCreatureForm
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', BaseView.as_view(), name='base-view'),
+    path('creature_details/<int:id>', CreatureDetails.as_view(), name='base-view'),
+    path('castle_creature_list/<str:castle>', CastleCreatureList.as_view(), name=''),
+    path('creature_details/<int:id>', EditCreatureForm.as_view(), name=''),
 ]
