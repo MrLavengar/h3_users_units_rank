@@ -26,3 +26,9 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+// When the user clicks on <div>, open the popup
+function myFunction(obj) {
+  var popup = obj.querySelector('span.popuptext');
+  popup.classList.toggle("show");
+}
