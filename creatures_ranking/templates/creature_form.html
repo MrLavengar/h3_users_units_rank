@@ -6,4 +6,8 @@
     {{ form.as_p }}
     <input type="submit" value="Send">
 </form>
+    {% if invalid_monster_credentials_message %}
+        <br>
+        {{ invalid_monster_credentials_message }}
+    {% endif %}
 {% endblock %}

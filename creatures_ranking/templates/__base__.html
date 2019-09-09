@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
-<body>
+<body style="background-color: #eeffbc">
 
 <div class="sidenav">
-    <span >Creatures rank by fight value</span>
+    <span>Creatures rank by fight value</span>
     {% for creature in creature_list %}
         <a href="/creature_details/{{ creature.id }}">
             {{ forloop.counter }})
@@ -19,86 +19,119 @@
 </div>
 <!-- //--------------------------- page content -------------------------// -->
 <div class="main">
-    <a href="#"><button>Login</button></a>
-    <a href="#"><button>Logout</button></a>
-    <a href="#"><button>Vote!</button></a><br>
-    <hr>
-
+    <div class="header">
+        <a href="/">
+            <button class="header-button">HomePage</button>
+        </a>
+        <a href="/voting">
+            <button class="header-button">Vote!</button>
+        </a>
+        <a href="/creature_ranking">
+            <button class="header-button">Creatures rank</button>
+        </a>
+        <div style="float: right;display: inline-block">
+            {% if user.is_authenticated %}
+                Logged as: {{ user.username }}
+                <a href="/logout">
+                    <button class="header-button">Logout</button>
+                </a>
+            {% else %}
+                Not logged in
+                <a href="/login">
+                    <button class="header-button">Login</button>
+                </a>
+            {% endif %}
+            <a href="/register">
+                <button class="header-button">Register</button>
+            </a>
+        </div>
+        <br>
+        <hr>
+    </div>
     {% block content %}
-         <!-- Slideshow container -->
-<div class="slideshow-container">
+        <!-- Slideshow container -->
+        <br><br><br><br>
+        <div class="slideshow-container">
 
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 9</div>
-    <a href="/castle_creature_list/Castle"><img src="{% static 'castle_images/Adventure_Map_Castle_fort.gif' %}" style="width:30%"></a>
-    <div class="text"><h3 class="shadow">Castle</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 9</div>
+                <a href="/castle_creature_list/Castle"><img
+                        src="{% static 'castle_images/Adventure_Map_Castle_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Castle</h3></div>
+            </div>
 
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 9</div>
-    <a href="/castle_creature_list/Rampart"><img src="{% static 'castle_images/Adventure_Map_Rampart_fort.gif' %}" style="width:30%"></a>
-    <div class="text"><h3 class="shadow">Rampart</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 9</div>
+                <a href="/castle_creature_list/Rampart"><img
+                        src="{% static 'castle_images/Adventure_Map_Rampart_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Rampart</h3></div>
+            </div>
 
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 9</div>
-    <a href="/castle_creature_list/Tower"><img src="{% static 'castle_images/Adventure_Map_Tower_fort.gif' %}" style="width:30%"></a>
-      <div class="text"><h3 class="shadow">Tower</h3></div>
-  </div>
-    <div class="mySlides fade">
-    <div class="numbertext">4 / 3</div>
-    <a href="/castle_creature_list/Inferno"><img src="{% static 'castle_images/Adventure_Map_Inferno_fort.gif' %}" style="width:30%"></a>
-    <div class="text"><h3 class="shadow">Inferno</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 9</div>
+                <a href="/castle_creature_list/Tower"><img
+                        src="{% static 'castle_images/Adventure_Map_Tower_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Tower</h3></div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 3</div>
+                <a href="/castle_creature_list/Inferno"><img
+                        src="{% static 'castle_images/Adventure_Map_Inferno_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Inferno</h3></div>
+            </div>
 
-  <div class="mySlides fade">
-    <div class="numbertext">5 / 9</div>
-    <a href="/castle_creature_list/Necropolis"><img src="{% static 'castle_images/Adventure_Map_Necropolis_fort.gif' %}" style="width:30%"></a>
-    <div class="text"><h3 class="shadow">Necropolis</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 9</div>
+                <a href="/castle_creature_list/Necropolis"><img
+                        src="{% static 'castle_images/Adventure_Map_Necropolis_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Necropolis</h3></div>
+            </div>
 
-  <div class="mySlides fade">
-    <div class="numbertext">6 / 9</div>
-    <a href="/castle_creature_list/Dungeon"><img src="{% static 'castle_images/Adventure_Map_Dungeon_fort.gif' %}" style="width:30%"></a>
-      <div class="text"><h3 class="shadow">Dungeon</h3></div>
-  </div>
-    <div class="mySlides fade">
-    <div class="numbertext">7 / 9</div>
-    <a href="/castle_creature_list/Stronghold"><img src="{% static 'castle_images/Adventure_Map_Stronghold_fort.gif' %}" style="width:30%"></a>
-    <div class="text"><h3 class="shadow">Stronghold</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">6 / 9</div>
+                <a href="/castle_creature_list/Dungeon"><img
+                        src="{% static 'castle_images/Adventure_Map_Dungeon_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Dungeon</h3></div>
+            </div>
+            <div class="mySlides fade">
+                <div class="numbertext">7 / 9</div>
+                <a href="/castle_creature_list/Stronghold"><img
+                        src="{% static 'castle_images/Adventure_Map_Stronghold_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Stronghold</h3></div>
+            </div>
 
-  <div class="mySlides fade">
-    <div class="numbertext">8 / 9</div>
-    <a href="/castle_creature_list/Fortress"><img src="{% static 'castle_images/Adventure_Map_Fortress_fort.gif' %}" style="width:30%"></a>
-    <div class="text"><h3 class="shadow">Fortress</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">8 / 9</div>
+                <a href="/castle_creature_list/Fortress"><img
+                        src="{% static 'castle_images/Adventure_Map_Fortress_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Fortress</h3></div>
+            </div>
 
-  <div class="mySlides fade">
-    <div class="numbertext">9 / 9</div>
-    <a href="/castle_creature_list/Conflux"><img src="{% static 'castle_images/Adventure_Map_Conflux_fort.gif' %}" style="width:30%"></a>
-      <div class="text"><h3 class="shadow">Conflux</h3></div>
-  </div>
+            <div class="mySlides fade">
+                <div class="numbertext">9 / 9</div>
+                <a href="/castle_creature_list/Conflux"><img
+                        src="{% static 'castle_images/Adventure_Map_Conflux_fort.gif' %}" style="width:30%"></a>
+                <div class="text"><h3 class="shadow">Conflux</h3></div>
+            </div>
 
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">Previous</a>
-  <a class="next" onclick="plusSlides(1)">Next</a>
-</div>
-<br>
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">Previous</a>
+            <a class="next" onclick="plusSlides(1)">Next</a>
+        </div>
+        <br>
 
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(4)"></span>
-  <span class="dot" onclick="currentSlide(5)"></span>
-  <span class="dot" onclick="currentSlide(6)"></span>
-  <span class="dot" onclick="currentSlide(7)"></span>
-  <span class="dot" onclick="currentSlide(8)"></span>
-  <span class="dot" onclick="currentSlide(9)"></span>
-</div>
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+            <span class="dot" onclick="currentSlide(9)"></span>
+        </div>
 
     {% endblock content %}
 </div>

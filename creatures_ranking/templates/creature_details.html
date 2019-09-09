@@ -30,9 +30,15 @@
     {{ creature.fight_value }}<br>
     AI value:
     {{ creature.AI_value }}<br>
+    Number of votes:
+    {{ creature.number_of_votes }}<br>
     Special abilities:
-    {{ creature.special_abilities }}<br>
-    <a href ='/edit_creature/{{ creature.id }}' ><button>Edit creature details</button></a>
+    {{ creature.special_abilities }}<br><br>
+        {% if user.is_authenticated %}
+    <a href ='/edit_creature/{{ creature.id }}' ><button>Edit creature details</button></a></div>
+    {% else %}
+    <div class="message">Log in to edit creature details</div>
+    {% endif%}
 
 
 {% endblock %}
