@@ -92,5 +92,8 @@ modules.xml
 python3_7_heroes3_app
 
 # End of https://www.gitignore.io/api/pycharm+all
-h3_users_units_rank/__pycache__/
+*/__pycache__
+*/*/__pycache__
+__pycache__
+
 
