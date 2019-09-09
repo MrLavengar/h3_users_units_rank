@@ -16,12 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from creatures_ranking.views import CreatureDetails, CastleCreatureList, EditCreatureForm, BaseView
+from creatures_ranking.views import CreatureDetails, CastleCreatureList, EditCreatureForm, BaseView, CreatureRanking, \
+    Voting,RegisterForms,LoginForms,LogoutForms
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', BaseView.as_view(), name='base'),
-    path('creature_details/<int:id>', CreatureDetails.as_view(), name='base-view'),
-    path('castle_creature_list/<str:castle>', CastleCreatureList.as_view(), name=''),
-    path('edit_creature/<int:id>', EditCreatureForm.as_view(), name=''),
+    path('creature_details/<int:id>', CreatureDetails.as_view(), name='creature-details'),
+    path('castle_creature_list/<str:castle>', CastleCreatureList.as_view(), name='castle-creature-list'),
+    path('edit_creature/<int:id>', EditCreatureForm.as_view(), name='edit-creature'),
+    path('creature_ranking/', CreatureRanking.as_view(), name='creature-ranking'),
+    path('voting/', Voting.as_view(), name=''),
+    path('register/', RegisterForms.as_view(), name=''),
+    path('login/', LoginForms.as_view(), name=''),
+    path('logout/', LogoutForms.as_view(), name=''),
+
+
 ]

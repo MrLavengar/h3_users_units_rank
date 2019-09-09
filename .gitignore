@@ -93,4 +93,4 @@ python3_7_heroes3_app
 
 # End of https://www.gitignore.io/api/pycharm+all
 h3_users_units_rank/__pycache__/
-/tests.py
+/download_creatures_script.py
