@@ -1,0 +1,43 @@
+{% extends '__base__.html' %}
+{% load static %}
+{% block content %}
+    <div style="clear: both">
+    <div style="float: left;">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}<input type="Submit" value="Sort">
+        </form>
+        {{ message }}<br>
+        {% for creature in ordered_rank %}
+            <a href="/creature_details/{{ creature.id }}">
+                {{ forloop.counter }})
+                <img src="{% static creature.small_creature_picture_path %}" width="30px" height="30px">
+                {{ creature.name }}<br>
+            </a>
+        {% endfor %}
+    </div>
+    <div style="float: left;">
+        Order by users votes: <br>
+        {% for creature in general_rank %}
+            <a href="/creature_details/{{ creature.id }}">
+                {{ forloop.counter }})
+                <img src="{% static creature.small_creature_picture_path %}" width="30px" height="30px">
+                {{ creature.name }} <span style="font-size: 15px">votes:{{ creature.number_of_votes }}</span><br>
+            </a>
+        {% endfor %}
+    </div>
+    {% if user.is_authenticated %}
+    <div style="float: left;">
+        Order by users votes: <br>
+        {% for creature in user_rank %}
+            <a href="/creature_details/{{ creature.id }}">
+                {{ forloop.counter }})
+                <img src="{% static creature.small_creature_picture_path %}" width="30px" height="30px">
+                {{ creature.name }} <span style="font-size: 15px">votes:{{ creature.number_of_votes }}</span><br>
+            </a>
+        {% endfor %}
+    </div>
+    {% endif %}
+        <div style="clear: both"></div>
+    </div>
+{% endblock %}

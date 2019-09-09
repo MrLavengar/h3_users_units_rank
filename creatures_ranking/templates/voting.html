@@ -1,0 +1,125 @@
+{% extends '__base__.html' %}
+{% load static %}
+{% block content %}
+    <br><br><br><br>
+    <div>
+        <table align="center" style="text-align: center">
+            <tr>
+                <td style="width: 200px">{{ creature1.name }}</td>
+                <td>Creature</td>
+                <td style="width: 200px">{{ creature2.name }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="popup" onmouseover="myFunction(this)" onmouseout="myFunction(this)"><img
+                            src="{% static creature1.small_creature_picture_path %}" width="40px" height="40px"><span
+                            class="popuptext" id="myPopup">{{ creature1.special_abilities }}</span></div>
+                </td>
+                <td>Level</td>
+                <td>
+                    <div class="popup" onmouseover="myFunction(this)" onmouseout="myFunction(this)"><img
+                            src="{% static creature2.small_creature_picture_path %}" width="40px" height="40px"><span
+                            class="popuptext" id="myPopup2">{{ creature2.special_abilities }}</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td>{{ creature1.lvl }}</td>
+                <td>Level</td>
+                <td>{{ creature2.lvl }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.attack }}</td>
+                <td>Attack</td>
+                <td>{{ creature2.attack }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.defence }}</td>
+                <td>Defence</td>
+                <td>{{ creature2.defence }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.min_dmg }}</td>
+                <td>Min dmg</td>
+                <td>{{ creature2.min_dmg }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.max_dmg }}</td>
+                <td>Max dmg</td>
+                <td>{{ creature2.max_dmg }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.health }}</td>
+                <td>Health</td>
+                <td>{{ creature2.health }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.growth }}</td>
+                <td>Growth</td>
+                <td>{{ creature2.growth }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.speed }}</td>
+                <td>Speed</td>
+                <td>{{ creature2.speed }}</td>
+            </tr>
+            <tr>
+                <td>{{ creature1.fight_amount }}</td>
+                <td>Amount*</td>
+                <td>{{ creature2.fight_amount }}</td>
+            </tr>
+            <tr>{% if user.is_authenticated %}
+                <td>
+                    <a href="?looser={{ creature2.name }}&winner={{ creature1.name }}">
+                        <button>Winner</button>
+                    </a>
+                </td>
+                <td>Who wins?</td>
+                <td>
+                    <a href="?winner={{ creature2.name }}&looser={{ creature1.name }}">
+                        <button>Winner</button>
+                    </a>
+                </td>
+            {% else %}
+                <td colspan="3">You have to be logged in to vote</td>
+            {% endif %}
+            </tr>
+
+        </table>
+        <br>
+        <p style="text-align: center">Decide which troop will win, in a certain amount</p><br>
+        <span style="font-size: 10px">*Amount - the size of the troop is calculated on the basis of certain creature fight value</span>
+    </div>
+    <script>
+        var tr = document.querySelectorAll('tr')
+        lvl = tr[2].querySelectorAll('td')
+        if (lvl[0].textContent === lvl[2].textContent) {
+            lvl[0].style.color = 'blue'
+            lvl[2].style.color = 'blue'
+        }
+        if (lvl[0].textContent > lvl[2].textContent) {
+            lvl[0].style.color = 'green'
+            lvl[2].style.color = 'red'
+        }
+        if (lvl[0].textContent < lvl[2].textContent) {
+            lvl[0].style.color = 'red'
+            lvl[2].style.color = 'green'
+        }
+        for (var i = 3; i < tr.length - 1; i++) {
+            td = tr[i].querySelectorAll('td')
+
+            if (parseInt(td[0].textContent) === parseInt(td[2].textContent)) {
+                td[0].style.color = 'blue'
+                td[2].style.color = 'blue'
+            }
+            if (parseInt(td[0].textContent) > parseInt(td[2].textContent)) {
+                td[0].style.color = 'green'
+                td[2].style.color = 'red'
+            }
+            if (parseInt(td[0].textContent) < parseInt(td[2].textContent)) {
+                td[0].style.color = 'red'
+                td[2].style.color = 'green'
+            }
+
+        }
+    </script>
+{% endblock %}
