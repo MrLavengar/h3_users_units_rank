@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -32,8 +33,19 @@ class Creature(models.Model):
     fight_value = models.IntegerField()
     AI_value = models.IntegerField()
     special_abilities = models.CharField(max_length=512)
+    number_of_votes = models.IntegerField(default=0)
+
+    @property
+    def fight_amount(self):
+        return int(56315 / self.fight_value)
 
     @property
     def small_creature_picture_path(self):
         return "small_images/Creature_portrait_{name}_small.gif".format(name=self.name.replace(' ', '_'))
         # <img src="{% static creature.small_picture_path %}">
+
+
+class Votes(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    vote_plus = models.ForeignKey(Creature, on_delete=models.DO_NOTHING, related_name='creature1')
+    vote_minus = models.ForeignKey(Creature, on_delete=models.DO_NOTHING, related_name='creature2')
