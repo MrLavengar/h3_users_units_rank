@@ -9,7 +9,7 @@ Main functionality of this web app is to allow you to vote, which units are the 
 ### Database
 Name your database *h3_creatures_rank*
 
-To fill database with creatures and castles, run
+To fill database with creatures and castles, run migrations, then:
 ```
 python manage.py pupulatedata
 ```
