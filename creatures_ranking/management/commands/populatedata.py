@@ -3,7 +3,7 @@ from ._private import create_castles,create_creatures
 
 
 class Command(BaseCommand):
-    help = 'Populates school with students, subjects and teachers'
+    help = 'Populates database with creatures and castles'
 
     def handle(self, *args, **options):
         create_castles()
