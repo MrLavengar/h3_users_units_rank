@@ -7,6 +7,7 @@ In this web app I downloaded data about all Heroes of Might and Magic 3 (HOMM3) 
 Main functionality of this web app is to allow you to vote, which units are the best. You have to decide between two troops of units. Then, your votes and all other users votes will display in 'Creatures rank' section.
 
 ### Database
+Postgresql (I used pgAdmin3 on ubuntu)
 Name your database *h3_creatures_rank*
 
 To fill database with creatures and castles, run migrations, then:
