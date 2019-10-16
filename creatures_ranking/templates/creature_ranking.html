@@ -28,7 +28,7 @@
     </div>
     {% if user.is_authenticated %}
     <div style="float: left;">
-        Order by users votes: <br>
+        Order by your votes: <br>
         {% for creature in user_rank %}
             <a href="/creature_details/{{ creature.id }}">
                 {{ forloop.counter }})
